@@ -1,0 +1,29 @@
+hostname: netflix-ice
+nginx:
+  containerName: nginx
+  name: netflix-ice-nginx
+  type: ClusterIP
+  externalPort: 80
+  internalPort: 80
+  repository: nginx
+  tag: 1.13.3-alpine
+  pullPolicy: IfNotPresent
+
+ice:
+  containerName: ice
+  name: netflix-ice
+  tag: latest
+  internalPort: 8080
+  repository: jonbrouse/ice
+  pullPolicy: IfNotPresent
+
+containers:
+  resources:
+    limits:
+      memory: 14Gi
+  requests:
+    memory: 10Gi
+
+aws:
+  roleName: netflix-ice-kube
+  region: us-east-1

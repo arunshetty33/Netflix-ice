@@ -1,0 +1,4 @@
+apiVersion: v1
+description: Ice provides a birds-eye view of our large and complex cloud landscape from a usage and cost perspective.
+name: netflix-ice
+version: 1.0.0

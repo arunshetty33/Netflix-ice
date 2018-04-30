@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: {{ .Values.ice.name }}
+  name: {{ .Values.nginx.name }}
+  annotations:
+    external-dns.alpha.kubernetes.io/hostname: ice.{{ .Values.global.internalDomain }}
+spec:
+  type: {{ .Values.nginx.type }}
+  ports:
+    - port: {{ .Values.nginx.internalPort }}
+      targetPort: {{ .Values.nginx.externalPort }}
+      protocol: TCP
+      name: http
+  selector:
+    app: {{ .Values.ice.name }}
