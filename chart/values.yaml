@@ -23,7 +23,3 @@ containers:
       memory: 14Gi
   requests:
     memory: 10Gi
-
-aws:
-  roleName: netflix-ice-kube
-  region: us-east-1
